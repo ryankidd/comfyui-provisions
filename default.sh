@@ -24,12 +24,16 @@ NODES=(
 CHECKPOINT_MODELS=(
     # Turbovision
     "https://civitai.com/api/download/models/215418"
+    # Vibrant Horizon
+    "https://civitai.com/api/download/models/229760"
     # RMSDXL - Hybrid Turbo
     # "https://civitai.com/api/download/models/236754"
     # RealitiesEdge
     # "https://civitai.com/api/download/models/129666"
     # Hyperreal Surrealist 
     "https://civitai.com/api/download/models/225223"
+    # Wifgen
+    # "https://civitai.com/api/download/models/235861"
     
 
 )
@@ -67,25 +71,24 @@ CONTROLNET_MODELS=(
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/265129"
-    "https://civitai.com/api/download/models/125648"
-    "https://civitai.com/api/download/models/144203"
-    "https://civitai.com/api/download/models/112299"
-    "https://civitai.com/api/download/models/273935"
-    "https://civitai.com/api/download/models/269221"
-    "https://civitai.com/api/download/models/269804"
-    "https://civitai.com/api/download/models/274202"
-    "https://civitai.com/api/download/models/274262"
-    "https://civitai.com/api/download/models/273458"
-    "https://civitai.com/api/download/models/269142"
-    "https://civitai.com/api/download/models/273333"
-    "https://civitai.com/api/download/models/272641"
-    "https://civitai.com/api/download/models/268744"
-    "https://civitai.com/api/download/models/268162"    
-    "https://civitai.com/api/download/models/271978"
-    "https://civitai.com/api/download/models/270435"
-    "https://civitai.com/api/download/models/269592"
-    "https://civitai.com/api/download/models/265129"
+    
+    # "https://civitai.com/api/download/models/125648"    
+    # "https://civitai.com/api/download/models/112299"
+    # "https://civitai.com/api/download/models/273935"
+    # "https://civitai.com/api/download/models/269221"
+    # "https://civitai.com/api/download/models/269804"
+    # "https://civitai.com/api/download/models/274202"
+    # "https://civitai.com/api/download/models/274262"
+    # "https://civitai.com/api/download/models/273458"
+    # "https://civitai.com/api/download/models/269142"
+    # "https://civitai.com/api/download/models/273333"
+    # "https://civitai.com/api/download/models/272641"
+    # "https://civitai.com/api/download/models/268744"
+    # "https://civitai.com/api/download/models/268162"    
+    # "https://civitai.com/api/download/models/271978"
+    # "https://civitai.com/api/download/models/270435"
+    # "https://civitai.com/api/download/models/269592"
+    # "https://civitai.com/api/download/models/265129"
 
 )
 

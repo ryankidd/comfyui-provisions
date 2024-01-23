@@ -19,21 +19,22 @@ NODES=(
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/twri/sdxl_prompt_styler"
+    "https://github.com/Fannovel16/comfyui_controlnet_aux"
 )
 
 CHECKPOINT_MODELS=(
     # Turbovision
-    "https://civitai.com/api/download/models/215418"
-    # Vibrant Horizon
-    "https://civitai.com/api/download/models/229760"
+    "https://civitai.com/api/download/models/273102?type=Model&format=SafeTensor&size=pruned&fp=fp16"
     # RMSDXL - Hybrid Turbo
     # "https://civitai.com/api/download/models/236754"
     # RealitiesEdge
     # "https://civitai.com/api/download/models/129666"
     # Hyperreal Surrealist 
-    "https://civitai.com/api/download/models/225223"
+    # "https://civitai.com/api/download/models/280950?type=Model&format=SafeTensor&size=pruned&fp=fp16"
     # Wifgen
     # "https://civitai.com/api/download/models/235861"
+    # fitCorder
+    # "https://civitai.com/api/download/models/272693?type=Model&format=SafeTensor&size=pruned&fp=fp16"
     
 
 )
@@ -71,25 +72,159 @@ CONTROLNET_MODELS=(
 )
 
 LORA_MODELS=(
-    
-    # "https://civitai.com/api/download/models/125648"    
-    # "https://civitai.com/api/download/models/112299"
-    # "https://civitai.com/api/download/models/273935"
-    # "https://civitai.com/api/download/models/269221"
-    # "https://civitai.com/api/download/models/269804"
-    # "https://civitai.com/api/download/models/274202"
-    # "https://civitai.com/api/download/models/274262"
-    # "https://civitai.com/api/download/models/273458"
-    # "https://civitai.com/api/download/models/269142"
-    # "https://civitai.com/api/download/models/273333"
-    # "https://civitai.com/api/download/models/272641"
-    # "https://civitai.com/api/download/models/268744"
-    # "https://civitai.com/api/download/models/268162"    
-    # "https://civitai.com/api/download/models/271978"
-    # "https://civitai.com/api/download/models/270435"
-    # "https://civitai.com/api/download/models/269592"
-    # "https://civitai.com/api/download/models/265129"
+    # --- styles ---
+    # dissolve
+    # "https://civitai.com/api/download/models/277389?type=Model&format=SafeTensor"
+    # # geometry - penrose
+    # "https://civitai.com/api/download/models/304851?type=Model&format=SafeTensor"
+    # # geometry - fractal
+    # "https://civitai.com/api/download/models/303921?type=Model&format=SafeTensor"
+    # # bismuth
+    # "https://civitai.com/api/download/models/255200?type=Model&format=SafeTensor"
+    # # opal
+    # "https://civitai.com/api/download/models/253808?type=Model&format=SafeTensor"
+    # # motor oil
+    # "https://civitai.com/api/download/models/293577?type=Model&format=SafeTensor"
+    # # oil spill
+    # "https://civitai.com/api/download/models/269838?type=Model&format=SafeTensor"
+    # # LED
+    # "https://civitai.com/api/download/models/295111?type=Model&format=SafeTensor"
+    # # melting
+    # "https://civitai.com/api/download/models/277422?type=Model&format=SafeTensor"
+    # # electricity
+    # "https://civitai.com/api/download/models/301123?type=Model&format=SafeTensor"
+    # # neon 
+    # "https://civitai.com/api/download/models/304304?type=Model&format=SafeTensor"
+    # # elf fantasy
+    # "https://civitai.com/api/download/models/276913?type=Model&format=SafeTensor"
+    # # psychedeclic
+    # "https://civitai.com/api/download/models/292517?type=Model&format=SafeTensor"
+    # # neon cyberpunk
+    # "https://civitai.com/api/download/models/303470?type=Model&format=SafeTensor"
+    # # fireworks
+    # "https://civitai.com/api/download/models/273447?type=Model&format=SafeTensor"
+    # # waterdrops
+    # "https://civitai.com/api/download/models/293321?type=Model&format=SafeTensor"
+    # # dripping
+    # "https://civitai.com/api/download/models/287679?type=Model&format=SafeTensor"
+    # # mercury
+    # "https://civitai.com/api/download/models/303517?type=Model&format=SafeTensor"
+    # # inner light
+    # "https://civitai.com/api/download/models/308228?type=Model&format=SafeTensor"
+    # # dark matter
+    # "https://civitai.com/api/download/models/309059?type=Model&format=SafeTensor"
+    # # sunlight
+    # "https://civitai.com/api/download/models/307871?type=Model&format=SafeTensor"
+    # # geisha
+    # "https://civitai.com/api/download/models/291881?type=Model&format=SafeTensor"
+    # # pink emo
+    # "https://civitai.com/api/download/models/294521?type=Model&format=SafeTensor"
+    # # xeno organic
+    # "https://civitai.com/api/download/models/307384?type=Model&format=SafeTensor"
+    # # feline craft
+    # "https://civitai.com/api/download/models/296851?type=Model&format=SafeTensor"
+   
+    # -- tools --
+    # RMSDXL Photo
+    # "https://civitai.com/api/download/models/282532?type=Model&format=SafeTensor"
+    # RMSDXL Enhance
+    # "https://civitai.com/api/download/models/268857?type=Model&format=SafeTensor"
+    # RMSDXL Creative
+    # "https://civitai.com/api/download/models/272849?type=Model&format=SafeTensor"
+    # RMSDXL Darkness Cinema
+    ""
 
+    # -- ns --
+    # tjb
+    "https://civitai.com/api/download/models/293321?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/295606?type=Model&format=SafeTensor"
+    # doyoulikemybum
+    "https://civitai.com/api/download/models/293901?type=Model&format=SafeTensor"
+    # frombelow
+    "https://civitai.com/api/download/models/302319?type=Model&format=SafeTensor"
+    # godpus
+    "https://civitai.com/api/download/models/292193?type=Model&format=SafeTensor"
+    # leash
+    "https://civitai.com/api/download/models/282890?type=Model&format=SafeTensor"
+    # dep
+    "https://civitai.com/api/download/models/309802?type=Model&format=SafeTensor"
+    # quirontop
+    "https://civitai.com/api/download/models/145250?type=Model&format=SafeTensor"
+    # blojo
+    "https://civitai.com/api/download/models/135068?type=Model&format=SafeTensor"
+    # allinone
+    "https://civitai.com/api/download/models/160240?type=Model&format=SafeTensor"
+    # 
+    "https://civitai.com/api/download/models/131240?type=Model&format=SafeTensor"
+
+
+    # -- effects --
+    # sweat
+    "https://civitai.com/api/download/models/302404?type=Model&format=SafeTensor"
+
+    # -- peep --
+    # shanwilke
+    "https://civitai.com/api/download/models/276046?type=Model&format=SafeTensor"
+    # chrishend
+    # "https://civitai.com/api/download/models/281634?type=Model&format=SafeTensor"
+    # sylvia
+    "https://civitai.com/api/download/models/297526?type=Model&format=SafeTensor"
+    # mila
+    "https://civitai.com/api/download/models/281744?type=Model&format=SafeTensor"
+    # jalba
+    # "https://civitai.com/api/download/models/289324?type=Model&format=SafeTensor"
+    # hotemma
+    "https://civitai.com/api/download/models/288200?type=Model&format=SafeTensor"
+    # stella 
+    "https://civitai.com/api/download/models/302210?type=Model&format=SafeTensor"
+    # nella
+    "https://civitai.com/api/download/models/302338?type=Model&format=SafeTensor"
+    # elena
+    "https://civitai.com/api/download/models/300915?type=Model&format=SafeTensor"
+    # amber heard
+    "https://civitai.com/api/download/models/302699?type=Model&format=SafeTensor"
+    # christinich/micu
+    "https://civitai.com/api/download/models/302433?type=Model&format=SafeTensor"
+    # piep
+    "https://civitai.com/api/download/models/273504?type=Model&format=SafeTensor"
+    # grande
+    "https://civitai.com/api/download/models/281438?type=Model&format=SafeTensor"
+    # nicola_cavanis woman
+    "https://civitai.com/api/download/models/284398?type=Model&format=SafeTensor"
+    # kmcgraf
+    "https://civitai.com/api/download/models/298811?type=Model&format=SafeTensor"
+    # halle
+    "https://civitai.com/api/download/models/308097?type=Model&format=SafeTensor"
+    # rachel folkman
+    "https://civitai.com/api/download/models/282167?type=Model&format=SafeTensor"
+    # eva mendes woman
+    "https://civitai.com/api/download/models/303424?type=Model&format=SafeTensor"
+    # cndcswnpl woman
+    "https://civitai.com/api/download/models/297955?type=Model&format=SafeTensor"
+    # alibunzy_model
+    "https://civitai.com/api/download/models/279099?type=Model&format=SafeTensor"
+    # virg
+    "https://civitai.com/api/download/models/282386?type=Model&format=SafeTensor"
+    # inna 
+    "https://civitai.com/api/download/models/307312?type=Model&format=SafeTensor"
+    # yuliya snigir woman
+    "https://civitai.com/api/download/models/299678?type=Model&format=SafeTensor"
+    # ariel tatum
+    "https://civitai.com/api/download/models/294419?type=Model&format=SafeTensor"
+    # grabriella_goumas_model
+    "https://civitai.com/models/256384/gabrielle-goumas?modelVersionId=289057"
+    # anaxx
+    "https://civitai.com/api/download/models/308749?type=Model&format=SafeTensor"
+    # nikita mirzani
+    "https://civitai.com/api/download/models/294486?type=Model&format=SafeTensor"
+    # ashleyschultz
+    "https://civitai.com/api/download/models/298982?type=Model&format=SafeTensor"
+    # maja strojek - ohwxms woman
+    "https://civitai.com/api/download/models/297950?type=Model&format=SafeTensor"
+
+    
+
+    
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###

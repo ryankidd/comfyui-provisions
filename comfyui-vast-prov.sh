@@ -6,17 +6,17 @@
 
 
 NODES=(
-    "https://github.com/ltdrdata/ComfyUI-Manager",
-    "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
-    "https://github.com/TinyTerra/ComfyUI_tinyterraNodes",
-    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet",
-    "https://github.com/ltdrdata/ComfyUI-Inspire-Pack",
-    "https://github.com/shingo1228/ComfyUI-SDXL-EmptyLatentImage",
-    "https://github.com/rgthree/rgthree-comfy",
-    "https://github.com/WASasquatch/was-node-suite-comfyui",
-    "https://github.com/wallish77/wlsh_nodes",
-    "https://github.com/TinyTerra/ComfyUI_tinyterraNodes",
-    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    "https://github.com/ltdrdata/ComfyUI-Manager/"
+    "https://github.com/ltdrdata/ComfyUI-Impact-Pack/"
+    "https://github.com/TinyTerra/ComfyUI_tinyterraNodes/"
+    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet/"
+    "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
+    "https://github.com/shingo1228/ComfyUI-SDXL-EmptyLatentImage/"
+    "https://github.com/rgthree/rgthree-comfy/"
+    "https://github.com/WASasquatch/was-node-suite-comfyui/"
+    "https://github.com/wallish77/wlsh_nodes/"
+    "https://github.com/TinyTerra/ComfyUI_tinyterraNodes/"
+    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes/"
 )
 
 CHECKPOINT_MODELS=(

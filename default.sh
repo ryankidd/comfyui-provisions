@@ -21,21 +21,21 @@ NODES=(
 
 CHECKPOINT_MODELS=(
     # Turbovision
-    # "https://civitai.com/api/download/models/215418",
+    "https://civitai.com/api/download/models/215418"
     # RMSDXL - Hybrid Turbo
-    # "https://civitai.com/api/download/models/236754",
+    # "https://civitai.com/api/download/models/236754"
     # RealitiesEdge
-    # "https://civitai.com/api/download/models/129666",
+    # "https://civitai.com/api/download/models/129666"
 
 )
 
 LORA_MODELS=(
-    # "https://civitai.com/api/download/models/215418",
-    # "https://civitai.com/api/download/models/151819?modelVersionId=169793",
-    # "https://civitai.com/api/download/models/16576",
-    # "https://civitai.com/api/download/models/16576",
-    # "https://civitai.com/api/download/models/16576",
-    # "https://civitai.com/api/download/models/16576",
+    # "https://civitai.com/api/download/models/215418"
+    # "https://civitai.com/api/download/models/151819?modelVersionId=169793"
+    # "https://civitai.com/api/download/models/16576"
+    # "https://civitai.com/api/download/models/16576"
+    # "https://civitai.com/api/download/models/16576"
+    # "https://civitai.com/api/download/models/16576"
 )
 
 VAE_MODELS=(

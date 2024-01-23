@@ -17,6 +17,8 @@ NODES=(
     "https://github.com/wallish77/wlsh_nodes"
     "https://github.com/TinyTerra/ComfyUI_tinyterraNodes"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    "https://github.com/chrisgoringe/cg-use-everywhere"
+    "https://github.com/twri/sdxl_prompt_styler"
 )
 
 CHECKPOINT_MODELS=(
@@ -26,16 +28,10 @@ CHECKPOINT_MODELS=(
     # "https://civitai.com/api/download/models/236754"
     # RealitiesEdge
     # "https://civitai.com/api/download/models/129666"
+    # Hyperreal Surrealist 
+    "https://civitai.com/api/download/models/225223"
+    
 
-)
-
-LORA_MODELS=(
-    # "https://civitai.com/api/download/models/215418"
-    # "https://civitai.com/api/download/models/151819?modelVersionId=169793"
-    # "https://civitai.com/api/download/models/16576"
-    # "https://civitai.com/api/download/models/16576"
-    # "https://civitai.com/api/download/models/16576"
-    # "https://civitai.com/api/download/models/16576"
 )
 
 VAE_MODELS=(
@@ -68,6 +64,29 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
+)
+
+LORA_MODELS=(
+    "https://civitai.com/api/download/models/265129"
+    "https://civitai.com/api/download/models/125648"
+    "https://civitai.com/api/download/models/144203"
+    "https://civitai.com/api/download/models/112299"
+    "https://civitai.com/api/download/models/273935"
+    "https://civitai.com/api/download/models/269221"
+    "https://civitai.com/api/download/models/269804"
+    "https://civitai.com/api/download/models/274202"
+    "https://civitai.com/api/download/models/274262"
+    "https://civitai.com/api/download/models/273458"
+    "https://civitai.com/api/download/models/269142"
+    "https://civitai.com/api/download/models/273333"
+    "https://civitai.com/api/download/models/272641"
+    "https://civitai.com/api/download/models/268744"
+    "https://civitai.com/api/download/models/268162"    
+    "https://civitai.com/api/download/models/271978"
+    "https://civitai.com/api/download/models/270435"
+    "https://civitai.com/api/download/models/269592"
+    "https://civitai.com/api/download/models/265129"
+
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###

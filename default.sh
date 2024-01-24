@@ -35,6 +35,9 @@ CHECKPOINT_MODELS=(
     # "https://civitai.com/api/download/models/235861"
     # fitCorder
     # "https://civitai.com/api/download/models/272693?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    # -- other sdxl, but non turbo --
+    # Albedo XL
+    "https://civitai.com/api/download/models/281176?type=Model&format=SafeTensor&size=pruned&fp=fp16"
     
 
 )
@@ -125,6 +128,8 @@ LORA_MODELS=(
     # "https://civitai.com/api/download/models/296851?type=Model&format=SafeTensor"
     # bioluminescent
     # "https://civitai.com/api/download/models/277457?type=Model&format=SafeTensor"
+    # Pollock 
+    # "https://civitai.com/api/download/models/305075?type=Model&format=SafeTensor"
    
     # -- tools --
     # RMSDXL Photo

@@ -123,6 +123,8 @@ LORA_MODELS=(
     # "https://civitai.com/api/download/models/307384?type=Model&format=SafeTensor"
     # # feline craft
     # "https://civitai.com/api/download/models/296851?type=Model&format=SafeTensor"
+    # bioluminescent
+    # "https://civitai.com/api/download/models/277457?type=Model&format=SafeTensor"
    
     # -- tools --
     # RMSDXL Photo
@@ -163,14 +165,27 @@ LORA_MODELS=(
     "https://civitai.com/api/download/models/302404?type=Model&format=SafeTensor"
 
     # -- peep --
+    # liya
+    "https://civitai.com/api/download/models/130412?type=Model&format=SafeTensor"
     # shanwilke
     "https://civitai.com/api/download/models/276046?type=Model&format=SafeTensor"
+    # abcorn = ohwx
+    "https://civitai.com/api/download/models/138169?type=Model&format=SafeTensor"
+    # krystal_boyd
+    "https://civitai.com/api/download/models/307799?type=Model&format=SafeTensor"
+    # dichen lachman
+    "https://civitai.com/api/download/models/246515?type=Model&format=SafeTensor"
     # chrishend
     # "https://civitai.com/api/download/models/281634?type=Model&format=SafeTensor"
+    # alex4d4dd
+    "https://civitai.com/api/download/models/130565?type=Model&format=SafeTensor"
+    # mfox
+    "https://civitai.com/api/download/models/135386?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/138155?type=Model&format=SafeTensor"
     # sylvia
     "https://civitai.com/api/download/models/297526?type=Model&format=SafeTensor"
     # mila
-    "https://civitai.com/api/download/models/281744?type=Model&format=SafeTensor"
+    # "https://civitai.com/api/download/models/281744?type=Model&format=SafeTensor"
     # jalba
     # "https://civitai.com/api/download/models/289324?type=Model&format=SafeTensor"
     # hotemma
@@ -229,31 +244,52 @@ LORA_MODELS=(
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
-function provisioning_start() {
+function prov_start() {
     DISK_GB_AVAILABLE=$(($(df --output=avail -m "${WORKSPACE}" | tail -n1) / 1000))
     DISK_GB_USED=$(($(df --output=used -m "${WORKSPACE}" | tail -n1) / 1000))
     DISK_GB_ALLOCATED=$(($DISK_GB_AVAILABLE + $DISK_GB_USED))
-    provisioning_print_header
-    provisioning_get_nodes
-    provisioning_get_models \
+    prov_print_header
+    prov_get_nodes
+    prov_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/ckpt" \
         "${CHECKPOINT_MODELS[@]}"
-    provisioning_get_models \
+    prov_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/lora" \
         "${LORA_MODELS[@]}"
-    provisioning_get_models \
+    prov_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/controlnet" \
         "${CONTROLNET_MODELS[@]}"
-    provisioning_get_models \
+    prov_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/vae" \
         "${VAE_MODELS[@]}"
-    provisioning_get_models \
+    prov_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
-    provisioning_print_end
+    prov_print_end
 }
 
-function provisioning_get_nodes() {
+
+function prov_get_models() {
+    if [[ -z $2 ]]; then return 1; fi
+    dir="$1"
+    mkdir -p "$dir"
+    shift
+    if [[ $DISK_GB_ALLOCATED -ge $DISK_GB_REQUIRED ]]; then
+        arr=("$@")
+    else
+        printf "WARNING: Low disk space allocation - Only the first model will be downloaded!\n"
+        arr=("$1")
+    fi
+
+    printf "Downloading %s model(s) to %s...\n" "${#arr[@]}" "$dir"
+    for url in "${arr[@]}"; do
+        printf "Downloading: %s\n" "${url}"
+        prov_download "${url}" "${dir}"
+        printf "\n"
+    done
+}
+
+function prov_get_nodes() {
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
         path="/opt/ComfyUI/custom_nodes/${dir}"
@@ -276,40 +312,21 @@ function provisioning_get_nodes() {
     done
 }
 
-function provisioning_get_models() {
-    if [[ -z $2 ]]; then return 1; fi
-    dir="$1"
-    mkdir -p "$dir"
-    shift
-    if [[ $DISK_GB_ALLOCATED -ge $DISK_GB_REQUIRED ]]; then
-        arr=("$@")
-    else
-        printf "WARNING: Low disk space allocation - Only the first model will be downloaded!\n"
-        arr=("$1")
-    fi
 
-    printf "Downloading %s model(s) to %s...\n" "${#arr[@]}" "$dir"
-    for url in "${arr[@]}"; do
-        printf "Downloading: %s\n" "${url}"
-        provisioning_download "${url}" "${dir}"
-        printf "\n"
-    done
-}
-
-function provisioning_print_header() {
+function prov_print_header() {
     printf "\n##############################################\n#                                            #\n#          Provisioning container            #\n#                                            #\n#         This will take some time           #\n#                                            #\n# Your container will be ready on completion #\n#                                            #\n##############################################\n\n"
     if [[ $DISK_GB_ALLOCATED -lt $DISK_GB_REQUIRED ]]; then
         printf "WARNING: Your allocated disk size (%sGB) is below the recommended %sGB - Some models will not be downloaded\n" "$DISK_GB_ALLOCATED" "$DISK_GB_REQUIRED"
     fi
 }
 
-function provisioning_print_end() {
+function prov_print_end() {
     printf "\nProvisioning complete:  Web UI will start now\n\n"
 }
 
 # Download from $1 URL to $2 file path
-function provisioning_download() {
-    wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+function prov_download() {
+    wget -qnc --content-disposition --nsfw --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
 }
 
-provisioning_start
+prov_start

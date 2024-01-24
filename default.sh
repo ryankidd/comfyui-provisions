@@ -134,7 +134,7 @@ function prov_print_end() {
 
 # Download from $1 URL to $2 file path
 function prov_download() {
-    wget -qnc --content-disposition --nsfw --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+    wget -qnc --content-disposition -show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
 }
 
 prov_start

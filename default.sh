@@ -22,7 +22,8 @@ NODES=(
     "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/twri/sdxl_prompt_styler"
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
-    https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    "https://github.com/kijai/ComfyUI-Marigold"
 )
 
 VAE_MODELS=(
@@ -67,13 +68,13 @@ function prov_start() {
     prov_print_header
     prov_get_nodes
     prov_get_models \
-        "${WORKSPACE}/storage/controlnet" \
+        "/workspace/storage/controlnet" \
         "${CONTROLNET_MODELS[@]}"
     prov_get_models \
-        "${WORKSPACE}/storage/vae" \
+        "/workspace/storage/vae" \
         "${VAE_MODELS[@]}"
     prov_get_models \
-        "${WORKSPACE}/storage/esrgan" \
+        "/workspace/storage/esrgan" \
         "${ESRGAN_MODELS[@]}"
     prov_print_end
 }

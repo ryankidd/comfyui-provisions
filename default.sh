@@ -22,6 +22,7 @@ NODES=(
     "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/twri/sdxl_prompt_styler"
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
+    https://github.com/pythongosssss/ComfyUI-Custom-Scripts
 )
 
 VAE_MODELS=(

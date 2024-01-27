@@ -24,6 +24,11 @@ NODES=(
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     "https://github.com/kijai/ComfyUI-Marigold"
+    "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
+    "https://github.com/Gourieff/comfyui-reactor-node"
+)
+CLIP_VISION_MODELS=(
+    
 )
 
 VAE_MODELS=(
@@ -39,24 +44,7 @@ ESRGAN_MODELS=(
 )
 
 CONTROLNET_MODELS=(
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
-    # "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
-    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
     "https://huggingface.co/SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe/blob/main/depth-zoe-xl-v1.0-controlnet.safetensors"
-    #"https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_canny-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_color-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_depth-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_keypose-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_openpose-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
@@ -79,28 +67,27 @@ function prov_start() {
     prov_print_end
 }
 
+### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
-function prov_get_models() {
-    if [[ -z $2 ]]; then return 1; fi
-    dir="$1"
-    mkdir -p "$dir"
-    shift
-    if [[ $DISK_GB_ALLOCATED -ge $DISK_GB_REQUIRED ]]; then
-        arr=("$@")
-    else
-        printf "WARNING: Low disk space allocation - Only the first model will be downloaded!\n"
-        arr=("$1")
-    fi
-
-    printf "Downloading %s model(s) to %s...\n" "${#arr[@]}" "$dir"
-    for url in "${arr[@]}"; do
-        printf "Downloading: %s\n" "${url}"
-        prov_download "${url}" "${dir}"
-        printf "\n"
-    done
+function prov_start() {
+    DISK_GB_AVAILABLE=$(($(df --output=avail -m "${WORKSPACE}" | tail -n1) / 1000))
+    DISK_GB_USED=$(($(df --output=used -m "${WORKSPACE}" | tail -n1) / 1000))
+    DISK_GB_ALLOCATED=$(($DISK_GB_AVAILABLE + $DISK_GB_USED))
+    prov_print_header
+    prov_get_nodes
+    prov_get_models \
+        "${WORKSPACE}/storage/controlnet" \
+        "${CONTROLNET_MODELS[@]}"
+    prov_get_models \
+        "${WORKSPACE}/storage/vae" \
+        "${VAE_MODELS[@]}"
+    prov_get_models \
+        "${WORKSPACE}/storage/esrgan" \
+        "${ESRGAN_MODELS[@]}"
+    prov_print_end
 }
 
-function prov_get_nodes() {
+function provisioning_get_nodes() {
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
         path="/opt/ComfyUI/custom_nodes/${dir}"
@@ -123,21 +110,40 @@ function prov_get_nodes() {
     done
 }
 
+function provisioning_get_models() {
+    if [[ -z $2 ]]; then return 1; fi
+    dir="$1"
+    mkdir -p "$dir"
+    shift
+    if [[ $DISK_GB_ALLOCATED -ge $DISK_GB_REQUIRED ]]; then
+        arr=("$@")
+    else
+        printf "WARNING: Low disk space allocation - Only the first model will be downloaded!\n"
+        arr=("$1")
+    fi
+    
+    printf "Downloading %s model(s) to %s...\n" "${#arr[@]}" "$dir"
+    for url in "${arr[@]}"; do
+        printf "Downloading: %s\n" "${url}"
+        provisioning_download "${url}" "${dir}"
+        printf "\n"
+    done
+}
 
-function prov_print_header() {
+function provisioning_print_header() {
     printf "\n##############################################\n#                                            #\n#          Provisioning container            #\n#                                            #\n#         This will take some time           #\n#                                            #\n# Your container will be ready on completion #\n#                                            #\n##############################################\n\n"
     if [[ $DISK_GB_ALLOCATED -lt $DISK_GB_REQUIRED ]]; then
         printf "WARNING: Your allocated disk size (%sGB) is below the recommended %sGB - Some models will not be downloaded\n" "$DISK_GB_ALLOCATED" "$DISK_GB_REQUIRED"
     fi
 }
 
-function prov_print_end() {
+function provisioning_print_end() {
     printf "\nProvisioning complete:  Web UI will start now\n\n"
 }
 
 # Download from $1 URL to $2 file path
-function prov_download() {
-    wget -qnc --content-disposition -show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+function provisioning_download() {
+    wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
 }
 
-prov_start
+provisioning_start

@@ -27,17 +27,10 @@ NODES=(
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
     "https://github.com/Gourieff/comfyui-reactor-node"
 )
-CLIP_VISION_MODELS=(
-    
-)
-
-VAE_MODELS=(
-    # "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
-    # "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
-    # "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
-)
 
 ESRGAN_MODELS=(
+    "https://huggingface.co/lokCX/4x-Ultrasharp/blob/main/4x-UltraSharp.pth"
+    "https://huggingface.co/konohashinobi4/4xAnimesharp/blob/main/4x-AnimeSharp.pth"
     "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
     "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
     "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
@@ -47,8 +40,6 @@ CONTROLNET_MODELS=(
     "https://huggingface.co/SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe/blob/main/depth-zoe-xl-v1.0-controlnet.safetensors"
 )
 
-### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
-
 function prov_start() {
     DISK_GB_AVAILABLE=$(($(df --output=avail -m "${WORKSPACE}" | tail -n1) / 1000))
     DISK_GB_USED=$(($(df --output=used -m "${WORKSPACE}" | tail -n1) / 1000))
@@ -56,34 +47,11 @@ function prov_start() {
     prov_print_header
     prov_get_nodes
     prov_get_models \
-        "/workspace/storage/controlnet" \
+        "${WORKSPACE}/controlnet" \
         "${CONTROLNET_MODELS[@]}"
     prov_get_models \
-        "/workspace/storage/vae" \
-        "${VAE_MODELS[@]}"
-    prov_get_models \
-        "/workspace/storage/esrgan" \
-        "${ESRGAN_MODELS[@]}"
-    prov_print_end
-}
-
-### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
-
-function prov_start() {
-    DISK_GB_AVAILABLE=$(($(df --output=avail -m "${WORKSPACE}" | tail -n1) / 1000))
-    DISK_GB_USED=$(($(df --output=used -m "${WORKSPACE}" | tail -n1) / 1000))
-    DISK_GB_ALLOCATED=$(($DISK_GB_AVAILABLE + $DISK_GB_USED))
-    prov_print_header
-    prov_get_nodes
-    prov_get_models \
-        "${WORKSPACE}/storage/controlnet" \
-        "${CONTROLNET_MODELS[@]}"
-    prov_get_models \
-        "${WORKSPACE}/storage/vae" \
-        "${VAE_MODELS[@]}"
-    prov_get_models \
-        "${WORKSPACE}/storage/esrgan" \
-        "${ESRGAN_MODELS[@]}"
+        "${WORKSPACE}/esrgan" \
+        "${ESRGAN_MODELS[@]}"        
     prov_print_end
 }
 
@@ -143,7 +111,7 @@ function provisioning_print_end() {
 
 # Download from $1 URL to $2 file path
 function provisioning_download() {
-    wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+    wget -qnc --content-disposition --show-progress -P "$2" "$1"
 }
 
 provisioning_start

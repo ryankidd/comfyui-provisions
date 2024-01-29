@@ -2,9 +2,7 @@
 
 # This file will be sourced in init.sh
 
-# https://raw.githubusercontent.com/ai-dock/comfyui/main/config/provisioning/default.sh
-# git clone https://github.com/roadmaus/CivitAI-CLI.git && cd CivitAI-CLI && [[ -x start.sh ]] || chmod +x start.sh && ./start.sh
-
+# https://raw.githubusercontent.com/ai-dock/comfyui/main/config/prov/default.sh
 
 
 NODES=(
@@ -28,7 +26,7 @@ NODES=(
     "https://github.com/Gourieff/comfyui-reactor-node"
 )
 
-ESRGAN_MODELS=(
+UPSCALE_MODELS=(
     "https://huggingface.co/lokCX/4x-Ultrasharp/blob/main/4x-UltraSharp.pth"
     "https://huggingface.co/konohashinobi4/4xAnimesharp/blob/main/4x-AnimeSharp.pth"
     "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
@@ -55,7 +53,7 @@ function prov_start() {
     prov_print_end
 }
 
-function provisioning_get_nodes() {
+function prov_get_nodes() {
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
         path="/opt/ComfyUI/custom_nodes/${dir}"
@@ -78,7 +76,7 @@ function provisioning_get_nodes() {
     done
 }
 
-function provisioning_get_models() {
+function prov_get_models() {
     if [[ -z $2 ]]; then return 1; fi
     dir="$1"
     mkdir -p "$dir"
@@ -93,25 +91,25 @@ function provisioning_get_models() {
     printf "Downloading %s model(s) to %s...\n" "${#arr[@]}" "$dir"
     for url in "${arr[@]}"; do
         printf "Downloading: %s\n" "${url}"
-        provisioning_download "${url}" "${dir}"
+        prov_download "${url}" "${dir}"
         printf "\n"
     done
 }
 
-function provisioning_print_header() {
-    printf "\n##############################################\n#                                            #\n#          Provisioning container            #\n#                                            #\n#         This will take some time           #\n#                                            #\n# Your container will be ready on completion #\n#                                            #\n##############################################\n\n"
+function prov_print_header() {
+    printf "\n##############################################\n#                                            #\n#          prov container            #\n#                                            #\n#         This will take some time           #\n#                                            #\n# Your container will be ready on completion #\n#                                            #\n##############################################\n\n"
     if [[ $DISK_GB_ALLOCATED -lt $DISK_GB_REQUIRED ]]; then
         printf "WARNING: Your allocated disk size (%sGB) is below the recommended %sGB - Some models will not be downloaded\n" "$DISK_GB_ALLOCATED" "$DISK_GB_REQUIRED"
     fi
 }
 
-function provisioning_print_end() {
-    printf "\nProvisioning complete:  Web UI will start now\n\n"
+function prov_print_end() {
+    printf "\nprov complete:  Web UI will start now\n\n"
 }
 
 # Download from $1 URL to $2 file path
-function provisioning_download() {
+function prov_download() {
     wget -qnc --content-disposition --show-progress -P "$2" "$1"
 }
 
-provisioning_start
+prov_start

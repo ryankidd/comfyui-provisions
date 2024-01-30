@@ -6,7 +6,7 @@
 
 
 NODES=(
-    "https://github.com/ltdrdata/ComfyUI-Manager"
+     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
     "https://github.com/TinyTerra/ComfyUI_tinyterraNodes"
     "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
@@ -24,18 +24,10 @@ NODES=(
     "https://github.com/kijai/ComfyUI-Marigold"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
     "https://github.com/Gourieff/comfyui-reactor-node"
-)
-
-UPSCALE_MODELS=(
-    "https://huggingface.co/lokCX/4x-Ultrasharp/blob/main/4x-UltraSharp.pth"
-    "https://huggingface.co/konohashinobi4/4xAnimesharp/blob/main/4x-AnimeSharp.pth"
-    "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
-    "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
-    "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
-)
-
-CONTROLNET_MODELS=(
-    "https://huggingface.co/SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe/blob/main/depth-zoe-xl-v1.0-controlnet.safetensors"
+    "https://github.com/chrisgoringe/cg-prompt-info"
+    "https://github.com/chrisgoringe/cg-use-everywhere"
+    "https://github.com/chrisgoringe/cg-quicknodes"
+    "https://github.com/chrisgoringe/cg-image-picker"
 )
 
 function prov_start() {
@@ -49,7 +41,7 @@ function prov_start() {
         "${CONTROLNET_MODELS[@]}"
     prov_get_models \
         "${WORKSPACE}/esrgan" \
-        "${ESRGAN_MODELS[@]}"        
+        "${UPSCALE_MODELS[@]}"        
     prov_print_end
 }
 

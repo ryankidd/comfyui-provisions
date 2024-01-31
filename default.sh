@@ -7,19 +7,6 @@
 
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
-    "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
-    "https://github.com/chrisgoringe/cg-use-everywhere"
-    "https://github.com/Fannovel16/comfyui_controlnet_aux"
-    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
-    "https://github.com/rgthree/rgthree-comfy"
-    "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
-    "https://github.com/shingo1228/ComfyUI-SDXL-EmptyLatentImage"
-    "https://github.com/adieyal/comfyui-dynamicprompts"    
-    "https://github.com/WASasquatch/was-node-suite-comfyui"
-    "https://github.com/wallish77/wlsh_nodes"
-    "https://github.com/chrisgoringe/cg-quicknodes"
-    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
-    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
 )
 
 function prov_start() {
@@ -27,20 +14,14 @@ function prov_start() {
     DISK_GB_USED=$(($(df --output=used -m "${WORKSPACE}" | tail -n1) / 1000))
     DISK_GB_ALLOCATED=$(($DISK_GB_AVAILABLE + $DISK_GB_USED))
     prov_print_header
-    prov_get_nodes
-    prov_get_models \
-        "${WORKSPACE}/controlnet" \
-        "${CONTROLNET_MODELS[@]}"
-    prov_get_models \
-        "${WORKSPACE}/esrgan" \
-        "${UPSCALE_MODELS[@]}"        
+    prov_get_nodes     
     prov_print_end
 }
 
 function prov_get_nodes() {
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
-        path="/opt/ComfyUI/custom_nodes/${dir}"
+        path="${WORKSPACE}/custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then

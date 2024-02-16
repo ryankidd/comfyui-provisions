@@ -22,6 +22,16 @@ NODES=(
     "https://github.com/wallish77/wlsh_nodes"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/bash-j/mikey_nodes"
+    "https://github.com/SLAPaper/ComfyUI-Image-Selector"
+    "https://github.com/AIrjen/OneButtonPrompt"
+    "https://github.com/wolfden/ComfyUi_PromptStylers"
+    "https://github.com/jags111/efficiency-nodes-comfyui"
+    "https://github.com/BadCafeCode/masquerade-nodes-comfyui"    
+    "https://github.com/whmc76/ComfyUI-Openpose-Editor-Plus"
+    "https://github.com/cubiq/ComfyUI_essentials"     
+    "https://github.com/kijai/ComfyUI-Marigold"
+    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
+    "https://github.com/Fannovel16/comfyui_controlnet_aux"
 )
 
 function prov_start() {
@@ -34,9 +44,12 @@ function prov_start() {
 }
 
 function prov_get_nodes() {
+
+    mkdir "${WORKSPACE}storage/custom_nodes"
+
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
-        path="${WORKSPACE}/ComfyUI/custom_nodes/${dir}"
+        path="${WORKSPACE}storage/custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then

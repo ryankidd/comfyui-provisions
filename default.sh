@@ -6,10 +6,8 @@
 
 
 NODES=(
-    "https://github.com/ltdrdata/ComfyUI-Manager"    
-    "https://github.com/adieyal/comfyui-dynamicprompts"    
+    "https://github.com/ltdrdata/ComfyUI-Manager"       
     "https://github.com/chrisgoringe/cg-image-picker"
-    "https://github.com/chrisgoringe/cg-prompt-info"
     "https://github.com/chrisgoringe/cg-quicknodes"
     "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
@@ -23,8 +21,6 @@ NODES=(
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/bash-j/mikey_nodes"
     "https://github.com/SLAPaper/ComfyUI-Image-Selector"
-    "https://github.com/AIrjen/OneButtonPrompt"
-    "https://github.com/wolfden/ComfyUi_PromptStylers"
     "https://github.com/jags111/efficiency-nodes-comfyui"
     "https://github.com/BadCafeCode/masquerade-nodes-comfyui"    
     "https://github.com/whmc76/ComfyUI-Openpose-Editor-Plus"
@@ -32,7 +28,6 @@ NODES=(
     "https://github.com/kijai/ComfyUI-Marigold"
     "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
-    "https://github.com/aegis72/comfyui-styles-all"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
 
 )

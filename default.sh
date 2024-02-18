@@ -32,6 +32,9 @@ NODES=(
     "https://github.com/kijai/ComfyUI-Marigold"
     "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
+    "https://github.com/aegis72/comfyui-styles-all"
+    "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
+
 )
 
 function prov_start() {

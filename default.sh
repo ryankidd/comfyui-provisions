@@ -21,8 +21,8 @@ NODES=(
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/bash-j/mikey_nodes"
     "https://github.com/SLAPaper/ComfyUI-Image-Selector"
-    "https://github.com/jags111/efficiency-nodes-comfyui"8
-    "https://github.com/BadCafeCode/masquerade-nodes-comfyui"    4
+    "https://github.com/jags111/efficiency-nodes-comfyui"
+    "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
     "https://github.com/whmc76/ComfyUI-Openpose-Editor-Plus"
     "https://github.com/cubiq/ComfyUI_essentials"     
     "https://github.com/kijai/ComfyUI-Marigold"

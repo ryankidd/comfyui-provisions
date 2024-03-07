@@ -6,23 +6,23 @@
 
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"       
-    "https://github.com/chrisgoringe/cg-image-picker"
-    "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
     "https://github.com/ltdrdata/ComfyUI-Inspire-Pack"
-    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
-    "https://github.com/rgthree/rgthree-comfy"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/twri/sdxl_prompt_styler"
-    "https://github.com/wallish77/wlsh_nodes"
-    "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/bash-j/mikey_nodes"
-    "https://github.com/jags111/efficiency-nodes-comfyui"
     "https://github.com/cubiq/ComfyUI_essentials"     
     "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
-    "https://github.com/crystian/ComfyUI-Crystools"
+    # "https://github.com/chrisgoringe/cg-image-picker"
+    # "https://github.com/chrisgoringe/cg-use-everywhere"
+    # "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    # "https://github.com/rgthree/rgthree-comfy"
+    # "https://github.com/wallish77/wlsh_nodes"
+    # "https://github.com/WASasquatch/was-node-suite-comfyui"
+    # "https://github.com/jags111/efficiency-nodes-comfyui"
+    # "https://github.com/crystian/ComfyUI-Crystools"
 
 )
 

@@ -20,15 +20,16 @@ NODES=(
     "https://github.com/wallish77/wlsh_nodes"
     "https://github.com/chrisgoringe/cg-image-picker"
     "https://github.com/chrisgoringe/cg-use-everywhere"
-    # "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
-    # "https://github.com/WASasquatch/was-node-suite-comfyui"
-    # "https://github.com/jags111/efficiency-nodes-comfyui"
+    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    "https://github.com/WASasquatch/was-node-suite-comfyui"
+    "https://github.com/jags111/efficiency-nodes-comfyui"
     "https://github.com/ManglerFTW/ComfyI2I"
     "https://github.com/blib-la/blibla-comfyui-extensions"
     "https://github.com/Acly/comfyui-inpaint-nodes"
     "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
     "https://github.com/crystian/ComfyUI-Crystools"
     "https://github.com/blib-la/blibla-comfyui-extensions"
+    "https://github.com/mape/ComfyUI-mape-Helpers"
 
 )
 

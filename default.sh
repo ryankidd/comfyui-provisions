@@ -43,11 +43,11 @@ function prov_start() {
 }
 
 function prov_get_nodes() {
-    mkdir "${WORKSPACE}storage/custom_nodes"
+    mkdir "${WORKSPACE}custom_nodes"
 
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
-        path="${WORKSPACE}storage/custom_nodes/${dir}"
+        path="${WORKSPACE}custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then

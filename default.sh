@@ -30,6 +30,9 @@ NODES=(
     "https://github.com/crystian/ComfyUI-Crystools"
     "https://github.com/blib-la/blibla-comfyui-extensions"
     "https://github.com/mape/ComfyUI-mape-Helpers"
+    "https://github.com/FizzleDorf/ComfyUI_FizzNodes"
+    "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
+    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
 
 )
 

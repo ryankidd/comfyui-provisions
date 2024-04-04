@@ -33,6 +33,7 @@ NODES=(
     "https://github.com/FizzleDorf/ComfyUI_FizzNodes"
     "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    "https://github.com/mape/ComfyUI-mape-Helpers"
 
 )
 

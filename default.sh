@@ -50,7 +50,7 @@ function prov_get_nodes() {
 
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
-        path="${WORKSPACE}custom_nodes/${dir}"
+        path="${WORKSPACE}storage/stable_diffusion/custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then

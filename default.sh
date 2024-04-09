@@ -33,6 +33,9 @@ NODES=(
     "https://github.com/FizzleDorf/ComfyUI_FizzNodes"
     "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    "https://github.com/gokayfem/ComfyUI_VLM_nodes"
+    "https://github.com/Extraltodeus/ComfyUI-AutomaticCFG"
+    "https://github.com/glowcone/comfyui-base64-to-image"
 
 )
 

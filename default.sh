@@ -36,7 +36,7 @@ NODES=(
     "https://github.com/gokayfem/ComfyUI_VLM_nodes"
     "https://github.com/Extraltodeus/ComfyUI-AutomaticCFG"
     "https://github.com/glowcone/comfyui-base64-to-image"
-
+    "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
 )
 
 function prov_start() {

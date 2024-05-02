@@ -37,6 +37,10 @@ NODES=(
     "https://github.com/Extraltodeus/ComfyUI-AutomaticCFG"
     "https://github.com/glowcone/comfyui-base64-to-image"
     "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
+    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
+    "https://github.com/melMass/comfy_mtb"
+    "https://github.com/kijai/ComfyUI-KJNodes"
+    "https://github.com/jojkaart/ComfyUI-sampler-lcm-alternative"
 )
 
 function prov_start() {

@@ -41,6 +41,8 @@ NODES=(
     "https://github.com/melMass/comfy_mtb"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/jojkaart/ComfyUI-sampler-lcm-alternative"
+    "https://github.com/SLAPaper/ComfyUI-Image-Selector"
+    "https://github.com/Extraltodeus/LoadLoraWithTags"
 )
 
 function prov_start() {
